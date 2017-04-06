@@ -2,8 +2,8 @@ import sys, pygame
 from pygame.locals import *
 from pygame.gfxdraw import filled_polygon
 from time import sleep
-hexgrid_width = 50
-hexgrid_height = 50
+hexgrid_height = 6
+hexgrid_width = 5
 
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
@@ -17,12 +17,12 @@ from hexlife_generator import hexlife_generator
 def render(display, state):
     for row in range(-1, hexgrid_height+1):
         for col in range(-row, hexgrid_width+1):
-            color = ALIVE if state[row%hexgrid_width][col%hexgrid_height] else DEAD
+            color = ALIVE if state[row%hexgrid_height][col%hexgrid_width] else DEAD
             hexcenter = hexagon_coordinates(row, col)
             points = hexagon_vertices(hexcenter)
             filled_polygon(display, points, color)
     
-g = hexlife_generator(50, 50)
+g = hexlife_generator(hexgrid_height, hexgrid_width)
 
 def main():
   pygame.init()

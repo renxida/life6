@@ -1,7 +1,7 @@
 import numpy as np
 default_survival_condition = [0, 3, 4, 5]
 
-def hexlife_generator(w, h, rule = default_survival_condition, initial_state = None):
+def hexlife_generator(h, w, rule = default_survival_condition, initial_state = None):
   """
   rule: survival condition. list of number of live neighbors required for a
   cell to survive. numbers are between 0 and 6 inclusive. Suggests including 0
